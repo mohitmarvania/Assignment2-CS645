@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amisha's Student Survey Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        .w3-input, .w3-select, .w3-check, .w3-radio { margin-bottom: 15px; }
+    </style>
+</head>
+<body class="w3-light-grey">
+    
+    <div class="w3-container w3-card w3-white w3-margin-top container">
+        <h2 class="w3-center">Student Survey Form</h2>
+        <form action="#" method="post">
+            
+            <label class="w3-text-teal"><b>First Name</b></label>
+            <input class="w3-input w3-border" type="text" name="first_name" required>
+
+            <label class="w3-text-teal"><b>Last Name</b></label>
+            <input class="w3-input w3-border" type="text" name="last_name" required>
+            
+            <label class="w3-text-teal"><b>Street Address</b></label>
+            <input class="w3-input w3-border" type="text" name="address" required>
+            
+            <label class="w3-text-teal"><b>City</b></label>
+            <input class="w3-input w3-border" type="text" name="city" required>
+
+            <label class="w3-text-teal"><b>State</b></label>
+            <input class="w3-input w3-border" type="text" name="state" required>
+
+            <label class="w3-text-teal"><b>Zip Code</b></label>
+            <input class="w3-input w3-border" type="text" name="zip" required>
+            
+            <label class="w3-text-teal"><b>Telephone Number</b></label>
+            <input class="w3-input w3-border" type="tel" name="phone" required>
+            
+            <label class="w3-text-teal"><b>Email</b></label>
+            <input class="w3-input w3-border" type="email" name="email" required>
+
+            <label class="w3-text-teal"><b>Date of Survey</b></label>
+            <input class="w3-input w3-border" type="date" name="survey_date" required>
+            
+            <label class="w3-text-teal"><b>What did you like most about the campus? (Select all that apply)</b></label>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Students"> Students</p>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Location"> Location</p>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Campus"> Campus</p>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Atmosphere"> Atmosphere</p>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Dorm Rooms"> Dorm Rooms</p>
+            <p><input class="w3-check" type="checkbox" name="liked[]" value="Sports"> Sports</p>
+
+            <label class="w3-text-teal"><b>How did you become interested in our university?</b></label>
+            <p><input class="w3-radio" type="radio" name="interest" value="Friends" required> Friends</p>
+            <p><input class="w3-radio" type="radio" name="interest" value="Television" required> Television</p>
+            <p><input class="w3-radio" type="radio" name="interest" value="Internet" required> Internet</p>
+            <p><input class="w3-radio" type="radio" name="interest" value="Other" required> Other</p>
+
+
+            <label>Would you recommend this school to others?</label>
+            <select name="recommendation" class="w3-select w3-border">
+                <option value="very_likely">Very Likely</option>
+                <option value="likely">Likely</option>
+                <option value="unlikely">Unlikely</option>
+            </select>
+
+            <label>Enter 10 comma-separated numbers (1-100) for the raffle:</label>
+            <input type="text" name="raffle" class="w3-input w3-border" placeholder="e.g., 10, 23, 45, 67, 89">
+
+            <label class="w3-text-teal"><b>Comments or Suggestions</b></label>
+            <textarea class="w3-input w3-border" name="comments" rows="4" placeholder="Your feedback..."></textarea>
+            
+            <button class="w3-button w3-teal w3-margin-top w3-block" type="submit">Submit</button>
+        </form>
+    </div>
+    
+</body>
+</html>

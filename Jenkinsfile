@@ -1,37 +1,29 @@
 pipeline {
-    agent any
-    environment {
-        DOCKER_IMAGE = "amisha1407/amishafinalnew"
-    }
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/mohitmarvania/Assignment2-CS645.git'
-            }
-        }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    sh 'docker build -t $DOCKER_IMAGE .'
-                }
-            }
-        }
-        stage('Push to Docker Hub') {
-            steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
-                    script {
-                        sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
-                        sh 'docker push $DOCKER_IMAGE'
-                    }
-                }
-            }
-        }
-        stage('Deploy to Kubernetes') {
-            steps {
-                script {
-                    sh 'kubectl set image deployment/my-app my-app=$DOCKER_IMAGE'
-                }
-            }
-        }
-    }
+	agent any 
+	stages {
+		stage("Building student survey application image") {
+			steps {
+				script {
+					checkout scm
+					sh 'echo ${BUILD_TIMESTAMP}'
+					sh "docker login -u amisha1407 -p 123ami456A@" 
+					def customImage = docker.build("amisha1407/amishafinalnew:${BUILD_TIMESTAMP}")
+				}
+			}
+		}
+		stage("Pushing Image to DockerHub") {
+			steps {
+				script {
+					sh 'docker push amisha1407/amishafinalnew:${BUILD_TIMESTAMP}'
+				}
+			}
+		}
+		stage("Deploying to Rancher") {
+			steps {
+				script {
+					sh 'kubectl set image deployment/assign2-deployment container-0=amisha1407/amishafinalnew:${BUILD_TIMESTAMP} -n default'
+				}
+			}
+		}
+	}
 }

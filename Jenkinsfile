@@ -1,5 +1,8 @@
 pipeline {
 	agent any 
+	environment {
+		BUILD_TIMESTAMP = new Date().format("yyyyMMdd-HHmmss", TimeZone.getTimeZone('UTC'))
+	}
 	stages {
 		stage("Building student survey application image") {
 			steps {

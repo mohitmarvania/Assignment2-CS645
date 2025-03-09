@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/amisha14072001/Assignment2-CS645.git'
+                git 'https://github.com/mohitmarvania/Assignment2-CS645.git'
             }
         }
         stage('Build Docker Image') {
